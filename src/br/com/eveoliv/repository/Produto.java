@@ -25,4 +25,16 @@ public class Produto {
 	public Integer getId() {
 		return id;
 	}
+
+	public Produto(String nome, String descricao) {
+		super();
+		this.nome = nome;
+		this.descricao = descricao;
+	}
+
+	@Override
+	public String toString() {
+
+		return String.format("O produto cadastrado foi: %d %s %s", this.id, this.nome, this.descricao);
+	}
 }
