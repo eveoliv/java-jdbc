@@ -4,7 +4,24 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import javax.sql.DataSource;
+
+import com.mchange.v2.c3p0.ComboPooledDataSource;
+
 public class ConnectionFactory {
+
+	protected String url = "jdbc:mysql://127.0.0.1:33061/loja_virtual?useTimezone=true&serverTimezone=UTC";
+	
+	public DataSource dataSource;
+
+	public ConnectionFactory() {
+
+		ComboPooledDataSource comboPooledDataSource = new ComboPooledDataSource();
+		comboPooledDataSource.setJdbcUrl(url);
+		comboPooledDataSource.setUser("root");
+		comboPooledDataSource.setPassword("root");
+		this.dataSource = comboPooledDataSource;
+	}
 
 	public Connection getConexao() throws SQLException {
 
@@ -16,9 +33,9 @@ public class ConnectionFactory {
 //		String stringConn = "jdbc:mysql://" + host + ":" + port + "/"+ database +"?useTimezone=true&serverTimezone=UTC";		
 //		Connection conn = DriverManager.getConnection(stringConn, user, pwd);
 
-		System.out.println("Abrindo conexao .... ");
-		return DriverManager.getConnection(
-				"jdbc:mysql://127.0.0.1:33061/loja_virtual?useTimezone=true&serverTimezone=UTC", "root", "root");
-		
+//		System.out.println("Abrindo conexao .... ");
+//		return DriverManager.getConnection(url, "root", "root");
+
+		return this.dataSource.getConnection();
 	}
 }
