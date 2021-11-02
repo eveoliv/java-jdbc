@@ -1,6 +1,9 @@
 package br.com.eveoliv.repository;
 
 import java.sql.Statement;
+
+import br.com.eveoliv.repository.model.Produto;
+
 import java.sql.ResultSet;
 import java.sql.Connection;
 import java.sql.SQLException;

@@ -1,4 +1,4 @@
-package br.com.eveoliv.repository;
+package br.com.eveoliv.repository.model;
 
 public class Produto {
 
@@ -22,12 +22,21 @@ public class Produto {
 		this.descricao = descricao;
 	}
 
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	public Integer getId() {
 		return id;
 	}
 
-	public Produto(String nome, String descricao) {
-		super();
+	public Produto(String nome, String descricao) {	
+		this.nome = nome;
+		this.descricao = descricao;
+	}
+			
+	public Produto(Integer id, String nome, String descricao) {		
+		this.id = id;
 		this.nome = nome;
 		this.descricao = descricao;
 	}
@@ -35,6 +44,8 @@ public class Produto {
 	@Override
 	public String toString() {
 
-		return String.format("O produto cadastrado foi: %d %s %s", this.id, this.nome, this.descricao);
+		return String.format("O produto é: %d %s %s", this.id, this.nome, this.descricao);
 	}
+
+	
 }

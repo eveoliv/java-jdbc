@@ -1,7 +1,6 @@
 package br.com.eveoliv.repository;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 
 import javax.sql.DataSource;
@@ -15,7 +14,8 @@ public class ConnectionFactory {
 	public DataSource dataSource;
 
 	public ConnectionFactory() {
-
+		
+		System.out.println("Iniciando conexao ...");
 		ComboPooledDataSource comboPooledDataSource = new ComboPooledDataSource();
 		comboPooledDataSource.setJdbcUrl(url);
 		comboPooledDataSource.setUser("root");
